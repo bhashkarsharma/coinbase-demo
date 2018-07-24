@@ -8,9 +8,9 @@ describe('ProductOverview', () => {
     test('Component init', () => {
         const comp = renderer.create(
             <MemoryRouter>
-                <ProductOverview/>
+                <ProductOverview />
             </MemoryRouter>
         )
-        console.log(comp.toJSON())
+        expect(comp).toBeTruthy()
     })
 })

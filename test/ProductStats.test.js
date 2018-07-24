@@ -15,9 +15,10 @@ describe('ProductStats', () => {
         }
         const comp = renderer.create(
             <MemoryRouter>
-                <ProductStats {...props}/>
+                <ProductStats {...props} />
             </MemoryRouter>
         )
-        console.log(comp.toJSON())
+        expect(comp).toBeTruthy()
     })
+
 })
