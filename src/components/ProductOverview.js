@@ -1,5 +1,7 @@
-import React, { Component } from "react";
-import axios from 'axios';
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+import axios from 'axios'
+import Config from '../config'
 
 export default class ProductOverview extends Component {
 
@@ -9,15 +11,15 @@ export default class ProductOverview extends Component {
     }
 
     componentDidMount() {
-        axios.get('https://api-public.sandbox.pro.coinbase.com/products')
+        axios.get(`${Config.API_DOMAIN}/products`)
             .then(resp => this.setState({ products: resp.data }))
             .catch(err => console.log(err))
     }
 
     render() {
         return (
-            <div>{JSON.stringify(this.state.resp)}
-
+            <div>
+                <h2 className="text-center">Product Overview</h2>
                 <table className="table">
                     <thead>
                         <tr>
@@ -33,7 +35,7 @@ export default class ProductOverview extends Component {
                         {
                             this.state.products.map((product, key) => {
                                 return <tr key={key} className={status}>
-                                    <td>{product.display_name}</td>
+                                    <td><Link to={`/stats/${product.id}`}>{product.display_name}</Link></td>
                                     <td>{product.base_currency}</td>
                                     <td>{product.quote_currency}</td>
                                     <td>{product.base_min_size}</td>

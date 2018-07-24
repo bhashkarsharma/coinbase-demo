@@ -1,7 +1,15 @@
-// import FormContainer from "./js/components/container/FormContainer";
-import ProductOverview from "./components/overview";
-import ReactDOM from "react-dom";
-import React from "react";
+import ReactDOM from 'react-dom'
+import React from 'react'
+import ProductOverview from './components/ProductOverview'
+import ProductStats from './components/ProductStats'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
-const wrapper = document.getElementById("app-root");
-wrapper ? ReactDOM.render(<ProductOverview />, wrapper) : false;
+ReactDOM.render(
+    <BrowserRouter>
+        <Switch>
+            <Route exact path="/" component={ProductOverview} />
+            <Route path="/stats/:id" component={ProductStats} />
+        </Switch>
+    </BrowserRouter>,
+    document.getElementById("app-root")
+)
