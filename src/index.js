@@ -2,14 +2,14 @@ import ReactDOM from 'react-dom'
 import React from 'react'
 import ProductOverview from './components/ProductOverview'
 import ProductStats from './components/ProductStats'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { HashRouter, Route, Switch } from 'react-router-dom'
 
 ReactDOM.render(
-    <BrowserRouter>
+    <HashRouter>
         <Switch>
             <Route exact path="/" component={ProductOverview} />
             <Route path="/stats/:id" component={ProductStats} />
         </Switch>
-    </BrowserRouter>,
+    </HashRouter>,
     document.getElementById("app-root")
 )

@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import axios from 'axios'
 import Config from '../config'
 
-export default class ProductOverview extends Component {
+export class ProductOverview extends Component {
 
     constructor() {
         super()
@@ -57,5 +57,6 @@ export default class ProductOverview extends Component {
             </div>
         )
     }
-
 }
+
+export default withRouter(ProductOverview)
